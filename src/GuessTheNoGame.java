@@ -33,7 +33,7 @@ class guessingNumber extends JFrame {
         restartIcon = new ImageIcon(
                 "C:\\Users\\apeer\\OneDrive\\Desktop\\New folder\\java mini project\\Miniproject-main\\src\\restart.png");
         gameIcon = new ImageIcon(
-                "C:\\Users\\IRFAN\\OneDrive\\Desktop\\java programs\\Login page\\Login\\src\\GNbackground.jpg");
+                "C:\\Users\\IRFAN\\OneDrive\\Desktop\\java programs\\Login page\\Login\\src\\GnBackground.jpg");
         gameImage = gameIcon.getImage();
         gameImage = gameImage.getScaledInstance(325, 300, java.awt.Image.SCALE_SMOOTH);
         gameIcon = new ImageIcon(gameImage);
