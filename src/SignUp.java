@@ -73,11 +73,10 @@ public class SignUp extends JFrame {
 
                 if (!userExist) {
                     // adding data in the database
-                    User user = addNewUser(name, username, password);
+                    String user = addNewUser(name, username, password);
 
                     // callingg main frame
-                    MainFrame mainframe = new MainFrame();
-                    mainframe.initialize(user);
+                    new MainFrame(user);
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(SignUp.this,
@@ -119,7 +118,7 @@ public class SignUp extends JFrame {
         setVisible(true);
     }
 
-    private User addNewUser(String name, String username, String password) {
+    private String addNewUser(String name, String username, String password) {
         User user = null;
 
         final String DB_URL = "jdbc:mysql://localhost:3306/userdatabase";
@@ -155,7 +154,7 @@ public class SignUp extends JFrame {
         } catch (Exception e) {
             System.out.println("Database connection failed ......   ");
         }
-        return user;
+        return user.userName;
     }
 
     private boolean checkUser(String username) {

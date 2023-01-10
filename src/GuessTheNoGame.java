@@ -15,7 +15,7 @@ class guessingNumber extends JFrame{
     JLabel l1,l2,l3,title,GNbackground,tt;
     JTextField t1;
     JButton ok,restart,exit;
-    ImageIcon restartIcon, gameIcon, exitIcon;
+    ImageIcon gameIcon;
     Image gameImage;
     JPanel pN;
     JPanel pC;
@@ -32,8 +32,6 @@ class guessingNumber extends JFrame{
 
     public guessingNumber(){
         System.out.println(number);
-        exitIcon = new ImageIcon("C:\\Users\\apeer\\OneDrive\\Desktop\\New folder\\java mini project\\Miniproject-main\\src\\exit0.ico");
-        restartIcon = new ImageIcon("C:\\Users\\apeer\\OneDrive\\Desktop\\New folder\\java mini project\\Miniproject-main\\src\\restart.png");
         gameIcon = new ImageIcon("C:\\Users\\apeer\\OneDrive\\Desktop\\New folder\\java mini project\\Miniproject-main\\src\\GNbackground.png");
         gameImage = gameIcon.getImage();
         gameImage = gameImage.getScaledInstance(325, 310, java.awt.Image.SCALE_SMOOTH);
@@ -104,7 +102,8 @@ class guessingNumber extends JFrame{
         setVisible(true);
         setDefaultCloseOperation(3);
         setSize(600,400);
-        // setResizable(false);
+        setResizable(false);
+        setLocationRelativeTo(null);
 
         ok.addActionListener(new ActionListener(){
             @Override
@@ -162,8 +161,7 @@ class guessingNumber extends JFrame{
         });
         exit.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-            MainFrame mf = new MainFrame();
-            mf.initialize(null);
+            new MainFrame("basit");
             dispose();
             }
         });

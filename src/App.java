@@ -10,6 +10,7 @@ public class App {
 
 class Login_signUp extends JFrame{
     JButton login , sign_up;
+    JLabel greet,or;
     Container mainContainer = this.getContentPane();
     public Login_signUp(){
         login = new JButton("LOGIN");
@@ -30,22 +31,41 @@ class Login_signUp extends JFrame{
             }
         });
 
-        mainContainer.setLayout(new BorderLayout(8,6));
-        mainContainer.setBackground(Color.BLACK);
+        // mainContainer.setLayout(new BorderLayout(8,6));
+        mainContainer.setBackground(Color.gray);
         login.setBackground(Color.black);
         sign_up.setBackground(Color.black);
+        login.setForeground(Color.orange);
+        sign_up.setForeground(Color.orange);
+
+        //Label
+        greet = new JLabel("WELCOME",SwingConstants.CENTER);
+        greet.setForeground(Color.BLACK);
+        greet.setFont(new Font("Serif",Font.PLAIN,30));
+        or = new JLabel("----or----",SwingConstants.CENTER);
+        or.setBackground(Color.gray);
+        or.setForeground(Color.BLACK);
+        // or.setFont(new Font("Arial",Font.PLAIN,14));
+
         JPanel panel = new JPanel();
-        // panel.setLayout(new GridLayout(1,2,10,20)); 
-        panel.setBounds(150,150,100,70);   
-        panel.add(login);
-        panel.add(sign_up);
+        JPanel grid = new JPanel();
+        grid.setLayout(new GridLayout(4,1,10,20)); 
+        grid.setBackground(Color.gray);
+        panel.setBounds(100,160,180,180);   
+        panel.add(greet);
+        panel.add(grid);
+        grid.add(login);
+        grid.add(or);
+        grid.add(sign_up);
         panel.setBackground(Color.GRAY);
-        mainContainer.add(panel, BorderLayout.NORTH);
+        mainContainer.add(panel, BorderLayout.CENTER);
         this.getRootPane().setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.BLACK));
 
         setLayout(null);
         setVisible(true);
-        setSize(400,400);
+        setSize(400,600);
         setDefaultCloseOperation(3);
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 }
