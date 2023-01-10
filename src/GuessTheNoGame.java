@@ -102,7 +102,8 @@ class guessingNumber extends JFrame{
         setVisible(true);
         setDefaultCloseOperation(3);
         setSize(600,400);
-        // setResizable(false);
+        setResizable(false);
+        setLocationRelativeTo(null);
 
         ok.addActionListener(new ActionListener(){
             @Override

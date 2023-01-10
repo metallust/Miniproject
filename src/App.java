@@ -51,7 +51,7 @@ class Login_signUp extends JFrame{
         JPanel grid = new JPanel();
         grid.setLayout(new GridLayout(4,1,10,20)); 
         grid.setBackground(Color.gray);
-        panel.setBounds(110,200,180,180);   
+        panel.setBounds(100,160,180,180);   
         panel.add(greet);
         panel.add(grid);
         grid.add(login);
@@ -66,5 +66,6 @@ class Login_signUp extends JFrame{
         setSize(400,600);
         setDefaultCloseOperation(3);
         setResizable(false);
+        setLocationRelativeTo(null);
     }
 }
