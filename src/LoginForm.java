@@ -57,8 +57,7 @@ public class LoginForm extends JFrame {
                 User user = getAuthenticatedUser(username, password);
 
                 if (user != null) {
-                    MainFrame mainframe = new MainFrame();
-                    mainframe.initialize(user);
+                    new MainFrame(username);
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(LoginForm.this,
