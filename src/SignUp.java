@@ -95,6 +95,7 @@ public class SignUp extends JFrame {
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new Login_signUp();
                 dispose();
             }
         });
