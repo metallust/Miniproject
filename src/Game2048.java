@@ -23,15 +23,13 @@ public class Game2048 extends JFrame implements KeyListener {
     JFrame frame = new JFrame();
     JPanel title_panel = new JPanel();
     JPanel panel = new JPanel();
-    JPanel buttonPanel = new JPanel();
     JLabel textfield = new JLabel();
     JLabel[][] labels = new JLabel[4][4];
-    JButton restart, exit;
 
     Game2048() {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 800);
+        frame.setSize(550, 700);
         frame.getContentPane().setBackground(new Color(50, 50, 50));
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
@@ -43,24 +41,14 @@ public class Game2048 extends JFrame implements KeyListener {
         textfield.setForeground(new Color(50, 102, 153));
         textfield.setFont(new Font("Ink Free", Font.BOLD, 75));
         textfield.setHorizontalAlignment(JLabel.CENTER);
-        textfield.setText("2048");
+        textfield.setText("0");
         textfield.setOpaque(true);
 
         title_panel.setLayout(new BorderLayout());
-        title_panel.setBounds(0, 0, 500, 20);
+        title_panel.setBounds(0, 0, 550, 70);
 
         panel.setLayout(new GridLayout(4, 4));
-        panel.setPreferredSize(new Dimension(500, 500));
-
-        // Button pannel
-        restart = new JButton();
-        exit = new JButton();
-        buttonPanel.add(restart);
-        buttonPanel.add(exit);
-        buttonPanel.setLayout(new FlowLayout());
-        // buttonPanel.setBounds(0, 0, 500, 500);
-
-        frame.setResizable(false);
+        // button_panel.setBackground(new Color(150, 150, 150));
 
         for (int j = 0; j < rows; j++) {
             for (int i = 0; i < cols; i++) {
@@ -77,8 +65,7 @@ public class Game2048 extends JFrame implements KeyListener {
 
         title_panel.add(textfield);
         frame.add(title_panel, BorderLayout.NORTH);
-        frame.add(panel, BorderLayout.CENTER);
-        frame.add(buttonPanel, BorderLayout.SOUTH);
+        frame.add(panel);
 
         for (int j = 0; j < rows; j++) {
             for (int i = 0; i < cols; i++) {
@@ -92,6 +79,7 @@ public class Game2048 extends JFrame implements KeyListener {
     }
 
     void updateLabels() {
+        textfield.setText(Integer.toString(score));
         for (int j = 0; j < 4; j++) {
             for (int i = 0; i < 4; i++) {
 
@@ -123,7 +111,6 @@ public class Game2048 extends JFrame implements KeyListener {
                 }
             }
         }
-        System.out.println(score);
 
     }
 
@@ -218,13 +205,11 @@ public class Game2048 extends JFrame implements KeyListener {
                 index++;
             }
         }
+
         for (int i = 0; i < 3; i++) {
             if (temp2[i] == temp2[i + 1] && temp2[i] != 0) {
-                int tempno = temp2[i] * 2;
-                temp2[i] = tempno;
-
-                // score
-                score += tempno;
+                temp2[i] = temp2[i] * 2;
+                score += temp[i];
                 for (int j = i + 1; j < 3; j++) {
                     temp2[j] = temp2[j + 1];
                 }
